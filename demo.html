@@ -10,10 +10,20 @@
         $(document).ready(function () {
             $("#btnSubmit").click(function (e) {
                 e.preventDefault();
+                // mỗi lần submit thì phải xóa lại để rỗng lại thẻ div có id là err
                 document.getElementById('err').innerHTML = '';
+
+                // khai báo một mảng rỗng
                 var listError = [];
+                
+                // lấy giá trị ô input có id là firstname
                 var firstname = document.getElementById("firstname").value;
+
+                // lấy giá trị ô input có id là lastname
                 var lastname = document.getElementById("lastname").value;
+
+                //kiểm tra nếu firsrname rỗng thì add vô listError một cái key đặt tên là First name
+                // tương tự với lastname
                 if (firstname == '') {
                     listError.push({
                         key: 'First name',
@@ -24,7 +34,11 @@
                         key: 'Last name',
                     })
                 }
+                // bỏ function phía dưới vào để chạy vòng lặp in ra
                 listError.forEach(myFunction);
+
+                // function in ra các các phần tử trong mảng listError vào thẻ div có id là err
+                // item ở đây là các phần tử của mảng
                 function myFunction(item) {
                     document.getElementById('err').innerHTML += item.key + " không được để trống" + "<br/>"
                 }
