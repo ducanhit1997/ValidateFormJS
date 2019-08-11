@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btnSubmit").click(function (e) {
+                e.preventDefault();
+                document.getElementById('err').innerHTML = '';
+                var listError = [];
+                var firstname = document.getElementById("firstname").value;
+                var lastname = document.getElementById("lastname").value;
+                if (firstname == '') {
+                    listError.push({
+                        key: 'First name',
+                    })
+                }
+                if (lastname == '') {
+                    listError.push({
+                        key: 'Last name',
+                    })
+                }
+                listError.forEach(myFunction);
+                function myFunction(item) {
+                    document.getElementById('err').innerHTML += item.key + " không được để trống" + "<br/>"
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <form>
+        First name:<br>
+        <input type="text" id="firstname">
+        <br>
+        Last name:<br>
+        <input type="text" id="lastname">
+        <br />
+        <button id="btnSubmit">Submit</button>
+    </form>
+    <div id="err"></div>
+</body>
+</html>
