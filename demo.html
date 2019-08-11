@@ -38,19 +38,14 @@
                         key: 'Last name',
                     })
                 }
-                if(year=='' || month=='' || day==''){
+                if (year == '' || month == '' || day == '') {
                     listError.push({
                         key: 'Date'
                     })
                 }
-                // bỏ function phía dưới vào để chạy vòng lặp in ra
-                listError.forEach(myFunction);
-
-                // function in ra các các phần tử trong mảng listError vào thẻ div có id là err
-                // item ở đây là các phần tử của mảng
-                function myFunction(item) {
+                listError.forEach(function (item) {
                     document.getElementById('err').innerHTML += item.key + ' , '
-                }
+                });
                 alert('Các trường không được để trống: ' + $('#err').html());
             });
         });
@@ -118,14 +113,14 @@
         <br>
         Last name:<br>
         <input type="text" id="lastname">
-        <br/>
-        Ngày sinh: <br/>
+        <br />
+        Ngày sinh: <br />
         <select id="year">
         </select>
         <select id="month">
         </select>
         <select id="day"></select>
-        <br /><br/>
+        <br /><br />
         <button id="btnSubmit">Submit</button>
     </form>
     <div id="err" hidden></div>
